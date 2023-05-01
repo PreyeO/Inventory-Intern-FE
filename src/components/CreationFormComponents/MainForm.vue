@@ -6,10 +6,7 @@
     </div>
     <div class="flex creation_forms">
       <div>
-        <q-form
-          @submit.prevent="handleSubmit"
-          class="q-pa-md shadow-2 details_form flex"
-        >
+        <q-form @submit.prevent class="q-pa-md shadow-2 details_form flex">
           <label>Product Name</label>
           <LongInput
             :placeholder="'Canon EOS Rebel T7'"
