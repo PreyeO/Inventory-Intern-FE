@@ -10,6 +10,6 @@ export async function publishProduct({ commit }, product) {
     console.log(response);
     commit("SET_PRODUCT", response.data);
   } catch (error) {
-    console.error(error);
+    console.error(error.response.data);
   }
 }

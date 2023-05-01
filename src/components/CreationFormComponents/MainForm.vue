@@ -10,15 +10,19 @@
           <label>Product Name</label>
           <LongInput
             :placeholder="'Canon EOS Rebel T7'"
-            v-model="product.ProductName"
+            v-model="product.productName"
             type="text"
             required
           />
+          <div>
+            <label>Product Long Description</label>
+            <TextEditor v-model="product.productLongDescription" />
+          </div>
           <SelectInput
             :label="'Select Product Category'"
             value
-            :options="ui.ProductCategory"
-            v-model="product.ProductCategory"
+            :options="ui.productCategory"
+            v-model="product.productCategory"
           />
 
           <div class="flex product_pricing">
@@ -42,8 +46,8 @@
           />
           <SelectInput
             :label="'Order Type'"
-            :options="ui.OrderType"
-            v-model="product.OrderType"
+            :options="ui.orderType"
+            v-model="product.orderType"
           />
           <div class="flex form_discount">
             <div>
@@ -112,14 +116,14 @@
 <script>
 import LongInput from "./LongInput.vue";
 import SelectInput from "./SelectInput.vue";
-// import TextEditor from "./TextEditor.vue";
+import TextEditor from "./TextEditor.vue";
 import UploadFile from "./UploadFile.vue";
 import ActionButton from "./ActionButton.vue";
 import { mapActions } from "vuex";
 
 export default {
   name: "MainForm",
-  components: { LongInput, SelectInput, UploadFile, ActionButton },
+  components: { LongInput, SelectInput, UploadFile, TextEditor, ActionButton },
   props: {
     label: {
       type: String,
@@ -133,15 +137,16 @@ export default {
   data() {
     return {
       ui: {
-        ProductCategory: ["gadget", "automobile", "electronics", "groceries"],
-        OrderType: ["return", "purchase", "in stock", "out of stock"],
+        productCategory: ["gadget", "automobile", "electronics", "groceries"],
+        orderType: ["return", "purchase", "in stock", "out of stock"],
         discountType: ["fixed", "percentage"],
         returnPolicy: ["yes", "no"],
       },
       product: {
-        ProductName: "",
-        ProductCategory: "",
-        OrderType: "",
+        productName: "",
+        productLongDescription: "",
+        productCategory: "",
+        orderType: "",
         sellingPrice: "",
         costPrice: "",
         quantityInStock: "",

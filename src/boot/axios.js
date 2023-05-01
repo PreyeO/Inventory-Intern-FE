@@ -27,7 +27,7 @@ import axios from "axios";
 import { LocalStorage } from "quasar";
 
 const api = axios.create({
-  baseURL: "https://b8ce-102-89-32-127.ngrok-free.app/",
+  baseURL: "https://527d-102-89-47-170.ngrok-free.app/",
 });
 
 // Set authorization header for all requests
