@@ -13,6 +13,9 @@ import { api } from "src/boot/axios";
 //     })
 // }
 export function login({ commit }, loginData) {
+  // store token in localstorage
+  localStorage.setItem("token", loginData.data.access_token);
+
   return commit("login", { loginData });
 }
 
